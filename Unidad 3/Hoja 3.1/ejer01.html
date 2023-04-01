@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*1.	Comprueba si una cadena de texto introducida por el usuario está formada sólo por mayúsculas, sólo por minúsculas o por ambas simultáneamente mediante una función.
+Puedes ayudarte de la clase String.
+*/
+function info(cadena) {
+    var mayusculas = 0;
+    var minusculas = 0;
+    for (var i = 0; i < cadena.length; i++) {
+        if (cadena.charAt(i) == cadena.charAt(i).toUpperCase()) {
+            mayusculas++;
+        } else {
+            minusculas++;
+        }
+    }
+    if (mayusculas == cadena.length) {
+        return "La cadena está formada sólo por mayúsculas";
+    } else if (minusculas == cadena.length) {
+        return "La cadena está formada sólo por minúsculas";
+    } else {
+        return "La cadena está formada por mayúsculas y minúsculas";
+    }
+}
+    </script>
+</head>
+<body>
+    <!-- 1.	Comprueba si una cadena de texto introducida por el usuario está formada sólo por mayúsculas, sólo por minúsculas o por ambas simultáneamente mediante una función.
+Puedes ayudarte de la clase String.
+ -->
+    <script>
+        var cadena = prompt("Introduce una cadena de texto");
+        setTimeout(function() {
+            alert(info(cadena));
+        }, 1000);
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
+    </script>
+</body>
+</html>

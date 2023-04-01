@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 2.	Dados dos números que introduciremos desde la pantalla, mediante una función:
+-	Comprueba si el primero es mayor que el segundo.
+-	Comprueba si el segundo es positivo.
+-	Comprueba si el primero es negativo o distinto de cero.
+-	Comprueba si al sumar 1 al primero lo convertimos en mayor o igual que el segundo
+  -->
+    <script>
+        function comparar(numero1, numero2) {
+            if (numero1 > numero2) {
+                document.write("El primero es mayor que el segundo");
+            } else {
+                document.write("El primero no es mayor que el segundo");
+            }
+            if (numero2 > 0) {
+                document.write("El segundo es positivo");
+            } else {
+                document.write("El segundo no es positivo");
+            }
+            if (numero1 < 0 || numero1 != 0) {
+                document.write("El primero es negativo o distinto de cero");
+            } else {
+                document.write("El primero no es negativo ni distinto de cero");
+            }
+            if (numero1 + 1 >= numero2) {
+                document.write("Al sumar 1 al primero lo convertimos en mayor o igual que el segundo");
+            } else {
+                document.write("Al sumar 1 al primero no lo convertimos en mayor o igual que el segundo");
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var numero1 =0;
+        do {
+            numero1 = prompt("Introduce un número");
+            try {
+                numero1 = parseInt(numero1);
+                if (isNaN(numero1)) {
+                    throw "El número no es válido";
+                }
+                break;
+            } catch (error) {
+                alert(error);
+            }
+        
+        } while (true);
+        var numero2 =0;
+        do {
+            numero2 = prompt("Introduce un número");
+            try {
+                numero2 = parseInt(numero2);
+                if (isNaN(numero2)) {
+                    throw "El número no es válido";
+                }
+                break;
+            } catch (error) {
+                alert(error);
+            }
+        
+        } while (true);
+        comparar(numero1, numero2);
+    </script>
+</body>
+</html>

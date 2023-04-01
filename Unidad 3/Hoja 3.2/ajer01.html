@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        1.	Crea una página Web que valide la letra del Documento Nacional de Identidad introducido por un usuario mediante una función.
+El cálculo de la letra del DNI es un proceso matemático sencillo que se basa en obtener el resto de la división entera del número de DNI y el número 23. A partir del resto de la división, se obtiene la letra seleccionándola dentro de un array de letras.
+El array de letras es: 'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T'.
+Por tanto, si el resto de la división es 0, la letra del DNI es la T o si el resto es 3, la letra es la A.
+El DNI debe ser introducido desde una ventana emergente, que deberá volver a aparecer mientras no sea correcto. Cuando sea correcto, se indicará en un mensaje también en una ventana emergente.
+Debes usar la clase Array.
+
+     -->
+     <script>
+        function validarDNI(dni) {
+            var letras = ["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E","T"];
+            var letra = dni.charAt(dni.length - 1);
+            var numero = parseInt(dni.substring(0, dni.length - 1));
+            var resto = numero % 23;
+            var letraCorrecta = letras[resto];
+
+            if (letra == letraCorrecta) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+       
+     </script>
+</head>
+<body>
+    <script>
+      do {
+            var dni = prompt("Introduce tu DNI");
+            if (validarDNI(dni)) {
+             setTimeout(function(){ alert("El DNI es correcto"); }, 1000);
+                break;
+            } else {
+                setTimeout(function(){ alert("El DNI es incorrecto"); }, 1000);
+            }
+        } while (true);
+    </script>
+</body>
+</html>

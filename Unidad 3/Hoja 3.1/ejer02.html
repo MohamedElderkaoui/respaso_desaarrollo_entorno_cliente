@@ -1,0 +1,70 @@
+<!-- 2.	Crea una página Web con un vector de seis componentes {true, 5, false, "hola", "adios", 2}. Con el uso de operadores comprobar si: 
+-	El cuarto componente es mayor o no que el tercero.
+-	Realizar un OR entre el primer y tercer componente.
+-	Realizar un AND entre el primer y tercer componente.
+-	Sumar, restar, multiplicar, dividir y calcular el módulo entre el segundo y el sexto componente.
+Puedes ayudarte de la clase Array.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var array = [true, 5, false, "hola", "adios", 2];
+        function mayorQue(array) {
+            if (array[3] > array[2]) {
+                return "El cuarto componente es mayor que el tercero";
+            } else {
+                return "El cuarto componente no es mayor que el tercero";
+            }
+        }
+        function or(array) {
+            if (array[0] || array[2]) {
+                return "El primer y tercer componente son true";
+            } else {
+                return "El primer y tercer componente no son true";
+            }
+        }
+        function and(array) {
+            if (array[0] && array[2]) {
+                return "El primer y tercer componente son true";
+            } else {
+                return "El primer y tercer componente no son true";
+            }
+        }
+        function suma(array) {
+            return array[1] + array[5];
+        }
+        function resta(array) {
+            return array[1] - array[5];
+        }
+        function multiplicacion(array) {
+            return array[1] * array[5];
+        }
+        function division(array) {
+            return array[1] / array[5];
+        }
+        function modulo(array) {
+            return array[1] % array[5];
+        }
+      var texto ="";
+        texto += mayorQue(array) + "<br>";
+        texto += or(array) + "<br>";
+        texto += and(array) + "<br>";
+        texto += "La suma es: " + suma(array) + "<br>";
+        texto += "La resta es: " + resta(array) + "<br>";
+        texto += "La multiplicación es: " + multiplicacion(array) + "<br>";
+        texto += "La división es: " + division(array) + "<br>";
+        texto += "El módulo es: " + modulo(array) + "<br>";
+        function escribir() {
+            document.write(texto);
+        }
+    </script>
+ </head>
+ <body>
+    <input type="button" value="ed" onclick="escribir()">
+ </body>
+ </html>
