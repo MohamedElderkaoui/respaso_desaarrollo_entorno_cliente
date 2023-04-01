@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        2.	Crea una página Web que muestre la fecha y hora actual con el siguiente formato:
+Hoy es lunes, 28 de Noviembre de 2022 y son las 14:32 horas
+Puedes ayudarte del objeto Date. No se puede usar el objeto Array.
+*/
+
+        var fecha = new Date();
+        var dia = fecha.getDay();
+        var diaMes = fecha.getDate();
+        var mes = fecha.getMonth();
+        var año = fecha.getFullYear();
+        var hora = fecha.getHours();
+        var minutos = fecha.getMinutes();
+        var diaSemana = "";
+        var mesAño = "";
+        var horaMinutos = "";
+
+        switch (dia) {
+            case 0:
+                diaSemana = "Domingo";
+                break;
+            case 1:
+                diaSemana = "Lunes";
+                break;
+            case 2:
+                diaSemana = "Martes";
+                break;
+            case 3:
+                diaSemana = "Miércoles";
+                break;
+            case 4:
+                diaSemana = "Jueves";
+                break;
+            case 5:
+                diaSemana = "Viernes";
+                break;
+            case 6:
+                diaSemana = "Sábado";
+                break;
+        }
+
+        switch (mes) {
+            case 0:
+                mesAño = "Enero";
+                break;
+            case 1:
+                mesAño = "Febrero";
+                break;
+            case 2:
+                mesAño = "Marzo";
+                break;
+            case 3:
+                mesAño = "Abril";
+                break;
+            case 4:
+                mesAño = "Mayo";
+                break;
+            case 5:
+                mesAño = "Junio";
+                break;
+            case 6:
+                mesAño = "Julio";
+                break;
+            case 7:
+                mesAño = "Agosto";
+                break;
+            case 8:
+                mesAño = "Septiembre";
+                break;
+            case 9:
+                mesAño = "Octubre";
+                break;
+            case 10:
+                mesAño = "Noviembre";
+                break;
+            case 11:
+                mesAño = "Diciembre";
+                break;
+        }
+
+        if (hora < 10) {
+            horaMinutos = "0" + hora;
+        } else {
+            horaMinutos = hora;
+        }
+
+        if (minutos < 10) {
+            horaMinutos += ":0" + minutos;
+        } else {
+            horaMinutos += ":" + minutos;
+        }
+        
+
+        document.write("Hoy es " + diaSemana + ", " + diaMes + " de " + mesAño + " de " + año + " y son las " + horaMinutos + " horas");
+
+    </script>
+</body>
+</html>

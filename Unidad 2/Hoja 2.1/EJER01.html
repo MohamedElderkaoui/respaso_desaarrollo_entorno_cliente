@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.	Guarda tus datos nombre, edad, altura y casado (true o false) en variables. Muéstralas en la página Web con saltos de línea. -->
+    <script>
+        let nombre = prompt("Introduce tu nombre");
+        let edad = 30;
+        do {
+            altura = prompt("Introduce tu altura");
+        } while (isNaN(altura));
+        let altura = 1.80;
+        do {
+            altura = prompt("Introduce tu altura");
+        } while (isNaN(altura));
+        let casado = false;
+        do {
+            casado = prompt("¿Estás casado? (true o false)");
+        } while (casado != "true" && casado != "false");
+        document.write(nombre + "<br>");
+        document.write(edad + "<br>");
+        document.write(altura + "<br>");
+        document.write(casado + "<br>");
+    </script>
+</body>
+</html>

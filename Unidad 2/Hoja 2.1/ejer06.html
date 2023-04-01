@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 6.	Introduce 3 números y muestra un texto por pantalla que diga cuál es el mayor. -->
+    <script>
+        let num1 = 0;
+        let num2 = 0;
+        let num3 = 0;
+        do {
+            num1 = prompt("Introduce el primer número");
+            if (isNaN(num1) != true) {
+               if (num1 !== null) {
+                   if (num1 >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        do {
+            num2 = prompt("Introduce el segundo número");
+            if (isNaN(num2) != true) {
+               if (num2 !== null) {
+                   if (num2 >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        do {
+            num3 = prompt("Introduce el tercer número");
+            if (isNaN(num3) != true) {
+               if (num3 !== null) {
+                   if (num3 >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        if (num1 > num2 && num1 > num3) {
+            document.write(num1 + " es mayor que " + num2 + " y " + num3);
+        } else if (num2 > num1 && num2 > num3) {
+            document.write(num2 + " es mayor que " + num1 + " y " + num3);
+        } else if (num3 > num1 && num3 > num2) {
+            document.write(num3 + " es mayor que " + num1 + " y " + num2);
+        } else {
+            document.write(num1 + ", " + num2 + " y " + num3 + " son iguales");
+        }
+    </script>
+    
+</body>
+</html>

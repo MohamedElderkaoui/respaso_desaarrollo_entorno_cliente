@@ -1,0 +1,36 @@
+1.	¿Qué es una aplicación Web?
+Una aplicación web es un programa o software que se ejecuta en un servidor web y que permite a los usuarios interactuar con él a través de un navegador web en cualquier dispositivo conectado a Internet. Las aplicaciones web pueden ser accesibles a través de Internet o de una red privada, y se utilizan para realizar diversas tareas, como gestionar bases de datos, enviar correos electrónicos, realizar compras en línea, compartir información, entre otras.
+2.	Explica brevemente el funcionamiento del protocolo HTTP.
+El protocolo HTTP (Hypertext Transfer Protocol) es el protocolo de comunicación utilizado para transferir datos en la World Wide Web (WWW). Es un protocolo de solicitud-respuesta en el que un cliente realiza una solicitud a un servidor web, y el servidor responde con una respuesta que contiene el contenido solicitado. Las solicitudes y respuestas se realizan mediante mensajes de texto que contienen encabezados y datos.
+
+
+3.	Funcionamiento básico de un navegador Web.
+l navegador web es un software que permite a los usuarios interactuar con la World Wide Web (WWW). Cuando el usuario ingresa una dirección web o URL en la barra de direcciones del navegador, se envía una solicitud al servidor web correspondiente para obtener el contenido de la página web solicitada. El navegador luego interpreta y muestra el contenido en una página web que puede incluir texto, imágenes, audio y video.
+4.	Estructura de una URI.
+La estructura de una URI (Uniform Resource Identifier) se compone de tres partes: el esquema (por ejemplo, HTTP, FTP, correo electrónico), la autoridad (nombre de dominio o dirección IP del servidor web) y la ruta (la ubicación específica del recurso en el servidor web). Por ejemplo, la URI "http://www.ejemplo.com/documento.html" consta de un esquema "http", una autoridad "www.ejemplo.com" y una ruta "/documento.html
+5.	Explica los subsistemas de la arquitectura de referencia de un navegador Web.
+Los subsistemas de la arquitectura de referencia de un navegador web son:
+
+Motor de renderizado: es el encargado de interpretar y procesar el código HTML, CSS y JavaScript para mostrar el contenido de una página web en el navegador.
+Motor de JavaScript: es el encargado de ejecutar el código JavaScript en una página web.
+Motor de red: es el encargado de realizar solicitudes y recibir respuestas del servidor web.
+Gestor de almacenamiento en caché: es el encargado de almacenar en caché los recursos de una página web para mejorar el rendimiento y la velocidad de carga.
+Gestor de complementos: es el encargado de permitir la instalación y ejecución de complementos o extensiones en el navegador.
+
+6.	Diferencias básicas entre páginas Web estáticas y dinámicas.
+Las páginas web estáticas son páginas que contienen información estática, es decir, que no cambia. Las páginas web dinámicas son páginas que contienen información dinámica, es decir, que cambia según el usuario y la situación. Las páginas web dinámicas se generan a partir de una base de datos o un script de servidor que se ejecuta en el servidor web. Por ejemplo, una página web dinámica puede mostrar información diferente a cada usuario, mostrar información en tiempo real, mostrar información diferente según la ubicación del usuario, entre otras.
+7.	Diferencias básicas entre SPA y MPA.
+
+Las Single Page Applications (SPA) son aplicaciones web que cargan una sola página web y utilizan JavaScript para cambiar el contenido de la página sin tener que recargar la página. Por otro lado, las Multi Page Applications (MPA) son aplicaciones web que cargan múltiples páginas web. Cada vez que el usuario hace clic en un enlace o botón, el navegador carga una nueva página web del servidor web. Las MPA suelen ser más lentas y pesadas que las SPA, pero ofrecen una mejor experiencia de usuario y mejoras en el posicionamiento SEO.
+8.	Explica las capas de una aplicación Web.
+
+Las capas de una aplicación web son:
+
+Capa de presentación: es la capa que se encarga de mostrar los datos y la información al usuario.
+Capa de lógica de negocio: es la capa que se encarga de procesar los datos y la información recibidos de la capa de presentación y realizar las operaciones correspondientes.
+Capa de acceso a datos: es la capa que se encarga de acceder a la fuente de datos y obtener los datos que se enviarán a la capa de lógica de negocio.
+
+9.	Explica el funcionamiento de una aplicación Web basada en la arquitectura cliente-servidor.
+
+Una aplicación web basada en la arquitectura cliente-servidor es aquella en la que la aplicación web se ejecuta en un servidor web y el usuario accede a ella a través de un navegador web en cualquier dispositivo conectado a Internet. Cuando el usuario ingresa una URL en el navegador web, se envía una solicitud al servidor web correspondiente para obtener el contenido de la página web solicitada. El servidor web procesa la solicitud y envía una respuesta que contiene el contenido solicitado. El navegador web interpreta la respuesta y muestra el contenido en una página web.
+

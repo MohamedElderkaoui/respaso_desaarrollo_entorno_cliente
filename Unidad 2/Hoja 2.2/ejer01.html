@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.	Haz una página Web que pregunte al usuario el nombre y luego lo incluya en un saludo dentro del cuerpo de la página. Si el usuario no rellena el nombre (pulsa en “Cancelar”), debe aparecer de nuevo la solicitud. -->
+    <script>
+        let nombre = "";
+        do {
+            nombre = prompt("Introduce tu nombre");
+            if (nombre !== null) {
+                if (nombre != "") {
+                    break;
+                }
+            }
+        } while (true);
+        document.write("Hola " + nombre);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2.	Introduce tu nombre y edad por caja de texto y muestra en la página Web el siguiente mensaje: “Hola nombre, así que tienes xx años”. -->
+    <script>
+        let nombre = prompt("Introduce tu nombre");
+        let edad = 0;
+        do {
+            edad = prompt("Introduce tu edad");
+            if (isNaN(edad)) {
+               if (edad !== null) {
+                   if (edad >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        document.write("Hola " + nombre + ", así que tienes " + edad + " años");
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 3.	Introduce dos números mediante caja de texto y muestra en pantalla la suma y la multiplicación de ambos. -->
+    <script>
+        let num1 = 0;
+        let num2 = 0;
+        do {
+            num1 = prompt("Introduce el primer número");
+            if (isNaN(num1) != true) {
+               if (num1 !== null) {
+                   if (num1 >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        do {
+            num2 = prompt("Introduce el segundo número");
+            if (isNaN(num2) != true) {
+               if (num2 !== null) {
+                   if (num2 >0) {
+                      break;
+                   }
+               }
+            }
+        } while (true);
+        document.write("La suma de " + num1 + " y " + num2 + " es " + (num1 + num2) + "<br>");
+        document.write("La multiplicación de " + num1 + " y " + num2 + " es " + (num1 * num2) + "<br>");
+    </script>
+</body>
+</html>
