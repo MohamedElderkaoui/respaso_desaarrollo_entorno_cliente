@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    		<style>
+			body { margin: 0px; }
+			
+			div { float: left; }
+			
+			#contenedor { position: absolute; width: 100%; height: 100%; }
+			#rojo { background-color: red; width: 50%; height: 50%; }
+			#verde { background-color: green; width: 50%; height: 50%; }
+			#amarillo { background-color: yellow; width: 50%; height: 50%; }
+			#azul { background-color: blue; width: 50%; height: 50%; }
+		</style>
+    <!-- 2.	Divide la pantalla en 4 zonas iguales con colores rojo, amarillo, azul y verde. Al pulsar sobre una de ellas, deberá aparecer un “alert” que indique el color del área sobre la que se ha hecho “click”.
+Para determinar el tamaño de la ventana del navegador utiliza la función “tamanoVentanaNavegador()” proporcionada:
+function tamanoVentanaNavegador() {
+// Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+var dimensiones = [];
+if (typeof(window.innerWidth) == 'number') {
+// No es IE.
+dimensiones = [window.innerWidth, window.innerHeight];
+} else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+	// IE 6 en modo estandar (no quirks).
+	dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+} else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+	// IE en modo quirks.
+	dimensiones = [document.body.clientWidth, document.body.clientHeight];			}
+return dimensiones;
+}
+ -->
+ <script>
+        function tamanoVentanaNavegador() {
+            // Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+            var dimensiones = [];
+            if (typeof(window.innerWidth) == 'number') {
+                // No es IE.
+                dimensiones = [window.innerWidth, window.innerHeight];
+            } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+                // IE 6 en modo estandar (no quirks).
+                dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+            } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+                // IE en modo quirks.
+                dimensiones = [document.body.clientWidth, document.body.clientHeight];
+            }
+            return dimensiones;
+        }
+ </script>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="rojo" onclick="alert('rojo')"></div>
+        <div id="verde" onclick="alert('verde')"></div>
+        <div id="amarillo" onclick="alert('amarillo')"></div>
+        <div id="azul" onclick="alert('azul')"></div>
+    </div>
+</body>
+</html>

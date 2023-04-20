@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .c{
+            text-align: center;
+            font-family: "arial";
+            font-size: 40px;
+            margin: 0.75cm 0.75cm 0.75cm 0.75cm;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <table border="2">
+                <tr>
+                    <td colspan="5">
+                        <div class="c" id="secuencia">_</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="1">
+                        <div class="c" onclick="clic(1)">1</div>
+                    </td>
+                    <td id="2">
+                        <div class="c" onclick="clic(2)">2</div>
+                    </td>
+                    <td id="3">
+                        <div class="c" onclick="clic(3)">3</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="4">
+                        <div class="c" onclick="clic(4)">4</div>
+                    </td>
+                    <td id="5">
+                        <div class="c" onclick="clic(5)">5</div>
+                    </td>
+                    <td id="6">
+                        <div class="c" onclick="clic(6)">6</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="7">
+                        <div class="c" onclick="clic(7)">7</div>
+                    </td>
+                    <td id="8">
+                        <div class="c" onclick="clic(8)">8</div>
+                    </td>
+                    <td id="9">
+                        <div class="c" onclick="clic(9)">9</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="c" id="R" onclick="reiniciar()">Reiniciar</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <script>
+        // Variable para guardar la secuencia de pulsaciones
+        let secuencia = [];
+
+        // Variable para llevar el contador de pulsaciones
+        let contadorPulsaciones = 0;
+
+        // Función para manejar el evento onclick de las celdas
+         function clic(num) {
+            // Agregar el número pulsado a la secuencia
+            secuencia.push(num);
+
+            // Mostrar la secuencia en el div de "secuencia"
+            document.getElementById("secuencia").innerText = secuencia.join(" ");
+
+            // Incrementar el contador de pulsaciones
+            contadorPulsaciones++;
+
+            // Reiniciar el contador y mostrar la secuencia de pulsaciones después de pulsar 3 números
+            if (contadorPulsaciones === 3) {
+                setTimeout(function() {
+                    alert("Secuencia de pulsaciones: " + secuencia.join(" "));
+                    reiniciar();
+                }, 1000);
+            }
+
+            // Cambiar el color de la celda durante un breve instante
+            document.getElementById(num).style.backgroundColor = "lightgray";
+            setTimeout(function() {
+                document.getElementById(num).style.backgroundColor = "white";
+            }, 5000);
+        }
+
+
+        // Función para reiniciar el juego
+        function reiniciar() {
+            // Reiniciar la secuencia de pulsaciones y el contador
+            secuencia = [];
+            contadorPulsaciones = 0;
+
+            // Limpiar el div de "secuencia"
+            document.getElementById("secuencia").innerText = "_";
+
+            // Limpiar los colores de las celdas
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById(i).style.backgroundColor = "white";
+            }
+        }
+    </script>
+</body>
+</html>

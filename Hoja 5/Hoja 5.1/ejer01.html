@@ -1,0 +1,35 @@
+<!-- 
+
+1.	Realiza una página Web con un enlace. Al pulsar sobre el enlace se debe mostrar el segundo atributo del enlace y su valor mediante dos ventanas de alerta.
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Ejercicio JavaScript DOM sin manejadores semánticos</title>
+	</head>
+	<body>
+		<a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+	</body>
+</html>
+No debes usar manejadores de eventos semánticos (hazlo como se ha hecho hasta ahora).
+Tampoco los métodos “getElementBy…” para acceder al nodo de tipo “element”. Debes usar las propiedades “element.attributes[].nodeName” y “element.attributes[].nodeValue”.
+
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+    <script>
+        var enlace = document.getElementById("id_link");
+        alert(enlace.attributes[1].nodeName);
+        alert(enlace.attributes[1].nodeValue);
+    </script>
+ </body>
+ </html>

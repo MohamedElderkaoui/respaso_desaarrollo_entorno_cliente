@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Document</title>
+    <!-- 
+        add bootstrap
+     -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .x
+        ,td .x{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            margin: 0.25cm 0.25cm 0.25cm 0.25cm;
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .o
+        ,td .o
+        {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            margin: 0.25cm 0.25cm 0.25cm 0.25cm;
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+       body{
+            width: 50vw;
+            height: 50vh;
+            background-color: gray;
+        }
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            /* center la tabla */
+           
+        }
+        td{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+        #reset{
+            margin-top: 20px;
+        }
+        .centere{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .x_marcador{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            margin: 0.25cm 0.25cm 0.25cm 0.25cm;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .o_marcador{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            margin: 0.25cm 0.25cm 0.25cm 0.25cm;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+               /* // SI TD CONTIENE X O O CAMBIAR POR UN DIV CON LA CLASE X O O Y EL CONTENIDO X O O
+       */ 
+       td{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        
+        border-radius: 50%;
+    }
+       }
+    </style>
+</head>
+<body class="container">
+    <!-- 
+        h1 is in top of the page
+     -->
+  <header class="row justify-content-center bg-dark text-white">
+        <h1 class="text-center">Tic Tac Toe</h1>
+  </header>
+  <!-- 
+    marcador
+   -->
+   <div class="row">
+         <div id="marcador" class="row col-12">
+            <div class="col-4">
+             <div class="x">X</div>
+         </div>
+         <div class="col-2">
+             <div class="x_marcador">0</div>
+         </div>
+         <div class="col-4">
+             <div class="o">O</div>
+         </div>
+         <div class="col-2">
+             <div class="o_marcador">0 
+             </div>
+         </div>
+         </div>
+         
+   </div>
+    <div class="row justify-content-center   centere" id="game">
+        <div class="col-4" id="cell_x">
+            <div class="x draggable">X</div>
+        </div>
+        <div class="col-6">
+            <table id="gameBoard">
+                <tr>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                    <td id="3"></td>
+                </tr>
+                <tr>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                    <td id="6"></td>
+                </tr>
+                <tr>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                    <td id="9"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-2" id="cell_o">
+            <div class="o draggable">O</div>
+        </div>
+    
+    </div>
+    <div class="row justify-content-center mt-5">
+        <button id="reset" class="btn btn-danger">Reset</button>
+    </div>
+    <!-- 
+        add jquery
+     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 
+        add jquery ui
+     -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- 
+        add jquery ui css
+        -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+       $(document).ready(function() {
+            var currentPlayer = "X"; // Variable para llevar el seguimiento del jugador actual
+
+            $(".draggable").draggable({
+                helper: "clone", // Utilizar una copia del elemento arrastrado
+                cursor: "move" // Cambiar el cursor a "mover" mientras se arrastra el elemento
+            });
+
+            $("#gameBoard td").droppable({
+                accept: ".draggable", // Solo aceptar elementos con la clase "draggable"
+                drop: function(event, ui) {
+                    // Obtener el ID de la celda en la que se soltó el elemento
+                    var cellId = $(this).attr("id");
+
+                    // Obtener el contenido del elemento arrastrado (X u O)con su div .o o .x respectivamente
+                    var draggedContent = ui.draggable.html();
+
+                   
+                    
+
+                    // Actualizar el contenido de la celda con el elemento arrastrado
+                    $(this).html(draggedContent);
+
+                    // Cambiar al siguiente jugador
+                                        // Cambiar al siguiente jugador
+                    currentPlayer = (currentPlayer === "X") ? "O" : "X";
+
+                    // Verificar si se ha formado una línea ganadora
+                    if (checkWin(currentPlayer)) {
+                        // Mostrar mensaje de victoria
+                        alert("¡Jugador " + currentPlayer + " ha ganado!");
+                        if (currentPlayer === "X") {
+                            $(".x_marcador").html(parseInt($(".x_marcador").html()) + 1);
+                        } else {
+                            $(".o_marcador").html(parseInt($(".o_marcador").html()) + 1);
+                        }
+                        // Reiniciar el juego
+                        resetGame();
+                    } else {
+                        // Verificar si se ha empatado el juego
+                        if (checkDraw()) {
+                            // Mostrar mensaje de empate
+                            alert("¡Empate!");
+
+                            // Reiniciar el juego
+                            resetGame();
+                        }
+                    }
+                }
+            });
+
+            // Función para verificar si se ha formado una línea ganadora
+            function checkWin(player) {
+                var winCombinations = [
+                    // Combinaciones horizontales
+                    [1, 2, 3], [4, 5, 6], [7, 8, 9],
+                    // Combinaciones verticales
+                    [1, 4, 7], [2, 5, 8], [3, 6, 9],
+                    // Combinaciones diagonales
+                    [1, 5, 9], [3, 5, 7]
+                ];
+
+                for (var i = 0; i < winCombinations.length; i++) {
+                    var combination = winCombinations[i];
+                    if ($("#" + combination[0]).text() === player &&
+                        $("#" + combination[1]).text() === player &&
+                        $("#" + combination[2]).text() === player) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            // Función para verificar si se ha empatado el juego
+            function checkDraw() {
+                var draw = true;
+                for (var i = 1; i <= 9; i++) {
+                    if ($("#" + i).text() === "") {
+                        draw = false;
+
+                        break;
+                    }
+                }
+                return draw;
+            }
+
+            // Función para reiniciar el juego 
+            function resetGame() {
+                $("#gameBoard td").text(""); // Limpiar contenido de las celdas
+                currentPlayer = "X"; // Reiniciar el jugador actual
+            }
+        });
+        // SI TD CONTIENE X O O CAMBIAR POR UN DIV CON LA CLASE X O O Y EL CONTENIDO X O O
+        $("td").each(function(){
+            if($(this).text() == "X"){
+                $(this).append("<div class='x'>X</div>");
+            }
+            if($(this).text() == "O"){
+               var div = document.createElement("div");
+                div.className = "o";
+                div.innerHTML = "O";
+                $(this).appendchild(div);
+            }
+        });
+        // Obtener todos los elementos con la clase "TD"
+var tds = document.getElementsByClassName("TD");
+
+// Recorrer todos los elementos con la clase "TD"
+for (var i = 0; i < tds.length; i++) {
+  var td = tds[i];
+  
+  // Verificar si el contenido del elemento TD contiene "X" o "O"
+  if (td.innerHTML.includes("X") || td.innerHTML.includes("O")) {
+    // Crear un nuevo elemento "div"
+    var div = document.createElement("div");
+    
+    // Obtener el contenido del elemento TD
+    var contenido = td.innerHTML;
+    
+    // Establecer la clase del nuevo elemento div basado en el contenido del TD
+    if (contenido === "X") {
+      div.className = "X";
+    } else if (contenido === "O") {
+      div.className = "O";
+    }
+    
+    // Establecer el contenido del nuevo elemento div
+    div.innerHTML = contenido;
+    
+    // Reemplazar el contenido del TD con el nuevo elemento div
+    td.innerHTML = "";
+    td.appendChild(div);
+  }
+}
+// turno de juego
+// anadir div a td si contiene x o o sin jquery 
+var tds = document.getElementsByClassName("TD");
+tds.forEach(function(td){
+    if(td.innerHTML == "X"){
+        var div = document.createElement("div");
+        div.className = "x";
+        div.innerHTML = "X";
+        td.appendChild(div);
+    }
+    if(td.innerHTML == "O"){
+        var div = document.createElement("div");
+        div.className = "o";
+        div.innerHTML = "O";
+        td.appendChild(div);
+    }
+});
+
+        // Obtener todos los elementos con la clase "TD"
+// reiniciar el juego
+        $("#reset").click(function() {
+           location.reload();
+        });
+    </script>
+</body>
+</html>

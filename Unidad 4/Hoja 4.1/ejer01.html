@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.	Crea un programa Web que muestre las coordenadas del ratón dentro del navegador y dentro de la página en la que estamos. Deben quedar claras las diferencias entre las propiedades “screen”, “page” y “client” del evento -->
+    <script>
+        function mostrarCoordenadas(evento) {
+            var xNavegador = evento.screenX;
+            var yNavegador = evento.screenY;
+            var xPagina = evento.pageX;
+            var yPagina = evento.pageY;
+            var xCliente = evento.clientX;
+            var yCliente = evento.clientY;
+            document.form1.xNavegador.value = xNavegador;
+            document.form1.yNavegador.value = yNavegador;
+            document.form1.xPagina.value = xPagina;
+            document.form1.yPagina.value = yPagina;
+            document.form1.xCliente.value = xCliente;
+            document.form1.yCliente.value = yCliente;
+            
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="form1" id="form1">
+        coordenada x navegado: <input type="text" name="xNavegador" id="xNavegador" value="0"><br>
+        coordenada y navegado: <input type="text" name="yNavegador" id="yNavegador" value="0"><br>
+        coordenada x pagina: <input type="text" name="xPagina" id="xPagina" value="0"><br>
+        coordenada y pagina: <input type="text" name="yPagina" id="yPagina" value="0"><br>
+        coordenada x cliente: <input type="text" name="xCliente" id="xCliente" value="0"><br>
+        coordenada y cliente: <input type="text" name="yCliente" id="yCliente" value="0"><br>
+
+    </form>
+  
+</body>
+</html>

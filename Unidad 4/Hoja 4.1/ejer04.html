@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 4.	Crea una caja de texto donde quepan 100 caracteres, y que a medidas que escribamos nos avise del número de caracteres que quedan libres. -->
+    <textarea name="texto" id="texto" cols="30" rows="10" maxlength="100"></textarea>
+    <script>
+        var texto = document.getElementById("texto");
+        texto.addEventListener("keyup", () => {
+            var caracteres = texto.value.length;
+            var caracteresRestantes = 100 - caracteres;
+            alert("Quedan " + caracteresRestantes + " caracteres");
+        });
+    </script>
+</body>
+</html>

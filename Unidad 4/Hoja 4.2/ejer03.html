@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            width: 400px;
+            margin: auto;
+        }
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+        input{
+            display: inline-block;
+            width: 200px;
+        }
+        body{
+            background-color: #f0f0f0;
+            /* center the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* set the height to 100% of the viewport */
+            min-height: 100vh;
+        }
+        legend{
+            font-size: 1.5em;
+            font-weight: bold;
+        }   
+        form{
+            display: flow-root;
+        }
+        form #enviar{
+            display: inline-block;
+            width: 100px;
+            /* center the element */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="" onsubmit="return validarFormulario()">
+        <fieldset>
+            <legend>Formulario</legend>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <br>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido">
+            <br>
+            <!-- telefono -->
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" id="telefono">
+            <br>
+            <!-- email -->
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+            <br>
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" id="dni">
+            <br>
+            <input type="submit" value="Enviar" id="enviar">
+            <!-- borrar -->
+            <input type="reset" value="Borrar" id="borrar" onclick="borrarFormulario()">
+        </fieldset>
+    </form>
+    <script>
+        function borrarFormulario(){
+            document.getElementById("nombre").value = "";
+            document.getElementById("apellido").value = "";
+            document.getElementById("telefono").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("dni").value = "";
+        }
+        function validarFormulario(){
+          
+            var nombreValido = /^[a-zA-Z]+$/;
+            var apellidoValido = /^[a-zA-Z]+$/;
+            var dniValido = /^[XYZ]?[0-9]{7}[A-Z]$/;
+            var telefonoValido = /^[0-9]{9}$/;
+            var emailValido = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+            for (let i = 0; i < formulario.elements.length; i++) {
+               elemento = formulario.elements[i];
+               if (elemento != "text")
+               continue;
+               var palabras = elemento.className.split(" ");
+               for (var j = 0; j < palabras.length; j++) {
+                /*	
+						switch (palabras[j]) {
+							case "noVacioYnoNumeros":
+								if (elemento.value.length < 1) { // Si el elemento está vacío.
+									alert("El campo no debe estar vacío.");
+									elemento.style.backgroundColor = '#ccc';
+									elemento.value = "";
+									return false;
+								}
+								if (!val_texto.test(elemento.value)) { // Si el elemento no contiene ningún número.
+									alert("El campo no debe contener ningún número.");
+									elemento.style.backgroundColor = '#ccc';
+									elemento.value = "";
+									return false;
+								}
+								break;
+							case "telefono":
+								if (!val_telefono.test(elemento.value)) {
+									alert("Teléfono no válido.");
+									elemento.style.backgroundColor = '#ccc';
+									elemento.value = "";
+									return false;
+								}
+								break;
+							case "email":
+								if (!val_email.test(elemento.value)) {
+									alert("Correo electrónico no válido.");
+									elemento.style.backgroundColor = '#ccc';
+									elemento.value = "";
+									return false;
+								}
+								break;
+							case "dni": // Falta añadir el cálculo de la letra.
+								if (!val_dni.test(elemento.value)) {
+									alert("DNI no válido.");
+									elemento.style.backgroundColor = '#ccc';
+									elemento.value = "";
+									return false;
+								}
+								break;
+							default:
+								break;*/
+
+                if (palabras[j] == "noVacioYnoNumeros") {
+                    if (elemento.value.length < 1) { // Si el elemento está vacío.
+                        alert("El campo no debe estar vacío.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                    if (!nombreValido.test(elemento.value)) { // Si el elemento no contiene ningún número.
+                        alert("El campo no debe contener ningún número.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                }
+                if (palabras[j] == "noVacioYnoNumeros") {
+                    if (elemento.value.length < 1) { // Si el elemento está vacío.
+                        alert("El campo no debe estar vacío.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                    if (!apellidoValido.test(elemento.value)) { // Si el elemento no contiene ningún número.
+                        alert("El campo no debe contener ningún número.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                }
+                if (palabras[j] == "telefono") {
+                    if (!telefonoValido.test(elemento.value)) {
+                        alert("Teléfono no válido.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                }
+                if (palabras[j] == "email") {
+                    if (!emailValido.test(elemento.value)) {
+                        alert("Correo electrónico no válido.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                }
+                if (palabras[j] == "dni") {
+                    if (!dniValido.test(elemento.value)) {
+                        alert("DNI no válido.");
+                        elemento.style.backgroundColor = '#ccc';
+                        elemento.value = "";
+                        return false;
+                    }
+                }
+               }
+            }
+        }
+    </script>
+</body>
+</html>

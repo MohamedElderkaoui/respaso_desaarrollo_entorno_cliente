@@ -1,0 +1,121 @@
+<!-- 1.	Crea una aplicación Web que vaya pidiendo al usuario su nombre, apellido, DNI, teléfono y correo electrónico. Comprueba mediante expresiones regulares, que:
+-	Nombre y apellido no estén vacíos y no contengan ningún número.
+-	DNI sea de la forma 8 dígitos + 1 letra.
+-	Teléfono tenga 9 dígitos exclusivamente.
+-	Correo electrónico sea de la forma texto@texto.texto
+
+Cada dato debe ser introducido desde una ventana emergente, que deberá volver a aparecer mientras no sea correcto. Al final, se deben mostrar todos los datos introducidos en el documento Web.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            width: 400px;
+            margin: auto;
+        }
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+        input{
+            display: inline-block;
+            width: 200px;
+        }
+        body{
+            background-color: #f0f0f0;
+            /* center the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* set the height to 100% of the viewport */
+            min-height: 100vh;
+
+
+        }
+        legend{
+            font-size: 1.5em;
+            font-weight: bold;
+        }   
+        form{
+            display: flow-root;
+         
+        }
+        form #enviar{
+            display: inline-block;
+            width: 100px;
+            /* center the element */
+            margin: auto;
+
+
+
+        }
+    </style>
+ </head>
+ <body>
+    <script>
+        /*sin aceder al DOM*/
+        var nombreValido = /^[a-zA-Z]+$/;
+        var apellidoValido = /^[a-zA-Z]+$/;
+        var dniValido = /^[XYZ]?[0-9]{7}[A-Z]$/;
+do {
+    var nombre = prompt("Introduce tu nombre");
+    if (nombreValido.test(nombre)) {
+        alert("Nombre correcto");
+    } else {
+        alert("Nombre incorrecto");
+    }
+} while (!nombreValido.test(nombre));
+do {
+    var apellido = prompt("Introduce tu apellido");
+    if (nombreValido.test(apellido)) {
+        alert("Apellido correcto");
+    } else {
+        alert("Apellido incorrecto");
+    }
+
+} while (!nombreValido.test(apellido));
+do {
+    var dni = prompt("Introduce tu DNI");
+    /* Formato de dni/Nie con nueve posiciones  "^[XYZ]?\\d{7}[A-Z]$"*/
+    if (dniValido.test(dni)) {
+        alert("DNI correcto");
+    } else {
+        alert("DNI incorrecto");
+    }
+} while (!dniValido.test(dni));
+
+
+var telefonoValido = /^[0-9]{9}$/;
+var correoValido = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+do {    
+    var telefono = prompt("Introduce tu telefono");
+    if (telefonoValido.test(telefono)) {
+        alert("Telefono correcto");
+    } else {
+        alert("Telefono incorrecto");
+    }
+} while (!telefonoValido.test(telefono));
+do {
+    var correo = prompt("Introduce tu correo");
+    if (correoValido.test(correo)) {
+        alert("Correo correcto");
+    } else {
+        alert("Correo incorrecto");
+    }
+} while (!correoValido.test(correo));
+/* VALIDAR TODOS LOS CAMPOS ANTES DE MOSTRARLOS */
+if (nombreValido.test(nombre) && nombreValido.test(apellido) && dniValido.test(dni) && telefonoValido.test(telefono) && correoValido.test(correo)) {
+    document.write("Nombre: " + nombre + "<br>");
+    document.write("Apellido: " + apellido + "<br>");
+    document.write("DNI: " + dni + "<br>");
+    document.write("Telefono: " + telefono + "<br>");
+    document.write("Correo: " + correo + "<br>");
+}
+    </script>
+ </body>
+ </html>
