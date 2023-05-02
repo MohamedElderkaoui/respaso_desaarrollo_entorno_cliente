@@ -13,12 +13,14 @@
         si es menor a 5 dias mostrar un mensaje en naranja
         */
 
-        var fecha = new Date("2021-10-10");
+        var fecha = prompt("ingrese una fecha posterior a la actual (dd/mm/aaaa)");
+        var spite = fecha.split("/");
+        var fecha = new Date(parseInt(spite[2]), parseInt(spite[1]) - 1, parseInt(spite[0]));
         var hoy = new Date();
-        var dias = fecha.getTime() - hoy.getTime();
+        var dias = fecha.getTime().getmilliseconds() - hoy.getTime().getmilliseconds();
         dias = Math.round(dias / (1000 * 60 * 60 * 24));
         var mensaje = "";
-        if  (dias > 15) {
+        <!-- if  (dias > 15) {
             mensaje = " tovia faltan tiempo";
             document.write("<h1 style='color:red'>" + mensaje + "</h1>");
         } else if (dias > 10) {
@@ -27,6 +29,29 @@
         } else if (dias > 5) {
             mensaje = " ha piado el toro";
             document.write("<h1 style='color:green'>" + mensaje + "</h1>");
+        } -->
+
+        switch (true) {
+            case (dias > 15):
+                mensaje = " tovia faltan tiempo";
+                document.write("<h1 style='color:red'>" + mensaje + "</h1>");
+                break;
+            case (dias > 10):
+                mensaje = "esta a la vuelta de la esquina";
+                document.write("<h1 style='color:yellow'>" + mensaje + "</h1>");
+                break;
+            case (dias > 5):
+                mensaje = " ha piado el toro";
+                document.write("<h1 style='color:green'>" + mensaje + "</h1>");
+                break;
+            case (dias > 0):
+                mensaje = " esta al caer";
+                document.write("<h1 style='color:blue'>" + mensaje + "</h1>");
+                break;
+            default:
+                mensaje = " ya ha pasado";
+                document.write("<h1 style='color:orange'>" + mensaje + "</h1>");
+                break;
         }
     </script>
 </head>
