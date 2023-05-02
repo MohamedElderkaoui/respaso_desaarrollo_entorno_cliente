@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* pida al usuario una fecha posterior a la actual (se debe usar la función Date()) y 
+        mostrar cuántos días faltan para esa fecha. 
+        si es  mayor a 15 dias mostrar un mensaje en rojo, si es mayor a 10 dias mostrar un mensaje en amarillo,
+        si  esta entre 15 y 10 dias mostrar un mensaje en verde, si es menor a 10 dias mostrar un mensaje en azul
+        si es menor a 5 dias mostrar un mensaje en naranja
+        */
+
+        var fecha = new Date("2021-10-10");
+        var hoy = new Date();
+        var dias = fecha.getTime() - hoy.getTime();
+        dias = Math.round(dias / (1000 * 60 * 60 * 24));
+        var mensaje = "";
+        if  (dias > 15) {
+            mensaje = " tovia faltan tiempo";
+            document.write("<h1 style='color:red'>" + mensaje + "</h1>");
+        } else if (dias > 10) {
+            mensaje = "esta a la vuelta de la esquina";
+            document.write("<h1 style='color:yellow'>" + mensaje + "</h1>");
+        } else if (dias > 5) {
+            mensaje = " ha piado el toro";
+            document.write("<h1 style='color:green'>" + mensaje + "</h1>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
