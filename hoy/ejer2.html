@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+            position: relative;
+        }
+        /*
+        no  flex-direction: column;
+        */
+        form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(50%, 50%);
+
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+      
+    </style>
+</head>
+<body>
+    <!-- 
+        2. Crea un escript que contendrá una función que con dos parámetros, el primero indicara la 
+   distancia en metros y el segundo indicará si queremos que nos devuelva el resultado en
+   centímetros o kilómetros.
+
+     -->
+        <form action="">
+                <input type="text" name="metros" id="metros"><br>
+                <!-- 
+                    radio button para elegir si queremos que nos devuelva el resultado en centímetros o kilómetros
+                 -->
+                <input type="radio" name="unidad" id="centimetros" value="centimetros">
+                <label for="centimetros">centimetros</label><br>
+                <input type="radio" name="unidad" id="kilometros" value="kilometros">
+                <label for="kilometros">kilometros</label><br>
+                <input type="submit" value="enviar" id="enviar">
+                <div></div>
+        </form>
+    <!-- 
+        js
+     -->
+    <script>
+        var enviar = document.getElementById("enviar");
+        var metros = document.getElementById("metros");
+        var centimetros = document.getElementById("centimetros");
+        var kilometros = document.getElementById("kilometros");
+        var div = document.querySelector("div");
+        /* validar que metros sea un numero, si no lo es, mostrar un mensaje de error */
+        metros.addEventListener("blur", function(){
+            if(isNaN(metros.value)){
+                alert("debe introducir un numero");
+                metros.value = 0;
+                centimetros.checked = false;
+                kilometros.checked = false;
+            } else {
+               enviar.addEventListener("click", function(){
+                if(centimetros.checked){
+                    div.innerHTML = parseInt(metros.value) * 100;
+                } else if(kilometros.checked){
+                    div.innerHTML = parseInt(metros.value) / 1000;
+                }
+               });
+            }
+        });
+    </script>
+    </body>
+</html>

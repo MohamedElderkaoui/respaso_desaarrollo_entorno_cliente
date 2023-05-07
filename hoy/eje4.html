@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+         Crea un script que le pida al usuario que itroduzca 4 o más números separado por un 
+   espacio. A partir de esta cadena que contiene los números introducidos por el usua
+   ario el escript debe:
+	a) Indicar cuantos números ha introducido el usuario.
+	b) Mostrar los números ordenados de mayor a menor.
+	c) Mostrar los números ordenados de menor a mayor.
+	d) ¿Cuál es el número que se repite más veces? Si hay más de uno, mostrar
+            cualquiera de ellos.
+            */
+            var numeros = "";
+            var numerosArray = [];
+            var numerosOrdenados = [];
+            var numerosOrdenadosInverso = [];
+            var numerosRepetidos = [];
+            var numerosRepetidosOrdenados = [];
+            var numerosRepetidosOrdenadosInverso = [];
+
+
+
+            do{
+                numeros = prompt("Ingrese 4 o mas numeros separados por un espacio");
+                numerosArray = numeros.split(" ");
+                /* filtrar  si hay letras o numeros negativos  , quitar las letras y los numeros negativos*/
+              numerosArray = numerosArray.filter(function(numero){
+                    return !isNaN(numero) && numero >= 0 && /*
+                     expresion regular para que no se repitan los numeros
+                     
+                    */ numero.match(/^[0-9]+$/)
+                ;});
+
+                if(numerosArray.length < 4){
+                    alert("Debe ingresar 4 o mas numeros");
+                }else if(numerosArray.length >= 4){
+                    alert("Ha ingresado " + numerosArray.length + " numeros");
+                    for(var i = 0; i < numerosArray.length; i++){
+                        numerosArray[i] = parseInt(numerosArray[i]);
+                    }
+                    numerosOrdenados = numerosArray.sort(function(a,b){return a-b});
+
+                    alert("Numeros ordenados de menor a mayor: " + numerosOrdenados);
+                    document.write("Numeros ordenados de menor a mayor: " + numerosOrdenados + "<br>");
+                    numerosOrdenadosInverso = numerosArray.sort(function(a,b){return b-a});
+                    alert("Numeros ordenados de mayor a menor: " + numerosOrdenadosInverso);
+                    document.write("Numeros ordenados de mayor a menor: " + numerosOrdenadosInverso + "<br>");
+
+                    for(var i = 0; i < numerosArray.length; i++){
+                        var contador = 0;
+                        for(var j = 0; j < numerosArray.length; j++){
+                            if(numerosArray[i] == numerosArray[j]){
+                                contador++;
+                            }
+                        }
+                        numerosRepetidos.push(contador);
+                    }
+                    for(var i = 0; i < numerosRepetidos.length; i++){
+                        if(numerosRepetidos[i] == Math.max(...numerosRepetidos)){
+                            numerosRepetidosOrdenados.push(numerosArray[i]);
+                        }
+                    }
+                    alert("El numero que mas se repite es: " + numerosRepetidosOrdenados[0]);
+                    document.write("Numeros ingresados: " + numerosArray + "<br>");
+                }
+            }while(numerosArray.length < 4);
+            var nuevaventana=window.open("","","width=200,height=100");
+            nuevaventana.document.write("Numeros ingresados: " + numerosArray + "<br>");
+            nuevaventana.document.write("Numeros ordenados de menor a mayor: " + numerosOrdenados + "<br>");
+            nuevaventana.document.write("Numeros ordenados de mayor a menor: " + numerosOrdenadosInverso + "<br>");
+            nuevaventana.document.write("El numero que mas se repite es: " + numerosRepetidosOrdenados[0] + "<br>");
+            /* espere 5 segundos y cierre la ventana */ 
+            setTimeout(function(){nuevaventana.close();},5000);
+            location.reload();
+            document.css("body").css("background-color","red");
+
+    </script>
+</body>
+</html>

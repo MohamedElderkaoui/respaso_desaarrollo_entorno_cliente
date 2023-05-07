@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*3. Crea un escript que solicita al usuario un distancia en kilómetros, y dependiendo la distancia
+   introducida nos devuelva.
+	a) Distancia corta. Si la distancia está entre 0 y 5 km.
+	b) Distancia media. si la distancia es mayor a 5km y menor a 10km.
+	c) Distancia larga. si la distancia es mayor a 10km.
+    */
+    var distancia =0;
+    do{
+        distancia = prompt("Ingrese la distancia en kilometros");
+/*si hay un error en la entrada de datos, se vuelve a pedir el dato*/
+       try{
+         if(isNaN(distancia) || distancia < 0){
+            throw new Error("El dato ingresado no es un numero o es menor a 0");
+        }
+        if(distancia >= 0 && distancia <= 5){
+            alert("Distancia corta");
+            break;
+        }else if(distancia > 5 && distancia < 10){
+            alert("Distancia media");
+            break;
+        }else if(distancia >= 10){
+            alert("Distancia larga");
+            break;
+        }
+         }catch(error){
+              alert(error);
+            }
+    }while(isNaN(distancia) || distancia < 0);
+    </script>
+</body>
+</html>

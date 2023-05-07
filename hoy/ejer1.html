@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1. Crea un Script que contendrá una función con un parámetro, el parametros representa 
+   una distancia en metros. La función debe devolver el resultado de pasar la distancia en
+   metros a kilómetros.
+     -->
+     <form action="">
+            <input type="text" name="metros" id="metros">
+            <input type="submit" value="enviar" id="enviar">
+            <input type="text" name="kilometros" id="kilometros" value="0">
+     </form>
+
+    <script>
+        var enviar = document.getElementById("enviar");
+        var metros = document.getElementById("metros");
+        /* validar que metros sea un numero, si no lo es, mostrar un mensaje de error */
+        metros.addEventListener("blur", function(){
+            if(isNaN(metros.value)){
+                alert("debe introducir un numero");
+                location.reload();
+            } else {
+               enviar.addEventListener("click", function(){
+                var kilometros = document.getElementById("kilometros");
+                kilometros.value = parseInt(metros.value) / 1000;
+               });
+            }
+        });
+    </script>
+</body>
+</html>
