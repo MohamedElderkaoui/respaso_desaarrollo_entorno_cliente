@@ -31,14 +31,14 @@
             do{
                 numeros = prompt("Ingrese 4 o mas numeros separados por un espacio");
                 numerosArray = numeros.split(" ");
-                /* filtrar  si hay letras o numeros negativos  , quitar las letras y los numeros negativos*/
-              numerosArray = numerosArray.filter(function(numero){
-                    return !isNaN(numero) && numero >= 0 && /*
-                     expresion regular para que no se repitan los numeros
-                     
-                    */ numero.match(/^[0-9]+$/)
-                ;});
-
+                /* filtrar  si hay letras o numeros negativos  , quitar las letras y los numeros negativos/^[0-9]+$/*/
+                for(var i = 0; i < numerosArray.length; i++){
+                    if(isNaN(numerosArray[i]) || numerosArray[i] < 0|| numerosArray[i].match(/^[0-9]+$/) == true){
+                        numerosArray.splice(i,1);
+                        i--;
+                    }
+                }
+                /* si hay menos de 4 numeros, volver a pedir los numeros */
                 if(numerosArray.length < 4){
                     alert("Debe ingresar 4 o mas numeros");
                 }else if(numerosArray.length >= 4){
