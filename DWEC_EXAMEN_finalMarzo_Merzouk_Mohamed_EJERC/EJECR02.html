@@ -115,7 +115,6 @@
         </div>
     </form>
     <script>
-<<<<<<< HEAD
         //variables
         var pantalla = document.getElementById("plantalla");
         var uno = document.getElementById("1");
@@ -272,51 +271,8 @@
                      }
                 }else{
                     resultado = numero2 / numero;
-=======
-        var operacion = "";
-        var memoria=0;
-        function pulsarNumero(numero) {
-            var pantalla = document.getElementById("pantalla");
-            var n = parseInt(pantalla.innerHTML)*10 + parseInt(numero);
-            pantalla.innerHTML = n+"";
-        }
-
-        function limpiar() {
-            var pantalla = document.getElementById("pantalla");
-            pantalla.innerHTML = " 0";
-              memoria=0;
-        }
-
-        function pulsarOperacion(e) {
-         operacion = operacion + e;
-            var pantalla = document.getElementById("pantalla");
-            memoria =parseInt(pantalla.innerHTML);
-            pantalla.innerHTML = "0";
-             
-        }
-
-        function calcular() {
-            var pantalla = document.getElementById("pantalla");
-            var resultado = 0;
-            switch (operacion) {
-                case "+":
-                    pantalla.innerHTML = parseInt(memoria) + parseInt(pantalla.innerHTML);
-                    break;
-                case "-":
-                    pantalla.innerHTML = parseInt(memoria) - parseInt(pantalla.innerHTML);
-                    break;
-                case "*":
-                    pantalla.innerHTML = parseInt(memoria) * parseInt(pantalla.innerHTML);
-                    break;
-                case "/":if(parseInt(pantalla.innerHTML)==0){
-                    pantalla.innerHTML="Error";
-                }else{
-                    pantalla.innerHTML = parseInt(memoria) / parseInt(pantalla.innerHTML);
->>>>>>> fe7d13fbeb46294c1371d634dc44a44f03a92640
                 }
-                    break;
             }
-<<<<<<< HEAD
             pantalla.innerHTML = resultado;
         });
         limpiar.addEventListener("click", function(){
@@ -324,15 +280,6 @@
             numero = 0;
             numero2 = 0;
             operacion = "";
-=======
-        memoria=parseInt(pantalla.innerHTML);
-              }
-
-
-
->>>>>>> fe7d13fbeb46294c1371d634dc44a44f03a92640
-
-            
         });
     </script>
 </body>
