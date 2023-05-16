@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.table {
+  margin-right: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+}
+
+.form {
+  max-width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="table">
+            
+                        <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Curso</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="form">
+            <form action="index.php" method="post">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                <label for="edad">Edad</label>
+                <input type="number" name="edad" id="edad" placeholder="Edad">
+                <label for="curso">Curso</label>
+                <input type="text" name="curso" id="curso" placeholder="Curso">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+    <script>
+        var submit = document.querySelector('input[type="submit"]');
+        var tbody = document.querySelector('tbody');
+        var form = document.querySelector('form');
+        var nombre = document.querySelector('#nombre');
+        var apellido = document.querySelector('#apellido');
+        var edad = document.querySelector('#edad');
+        var curso = document.querySelector('#curso');
+        var alumnos = [];
+        var id = 0;
+        submit.addEventListener('click', function(e){
+            e.preventDefault();
+            var alumno = {
+                id: id,
+                nombre: nombre.value,
+                apellido: apellido.value,
+                edad: edad.value,
+                curso: curso.value
+            }
+            alumnos.push(alumno);
+            id++;
+            nombre.value = '';
+            apellido.value = '';
+            edad.value = '';
+            curso.value = '';
+            tbody.innerHTML = '';
+            alumnos.forEach(function(alumno){
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>'+alumno.nombre+'</td><td>'+alumno.apellido+'</td><td>'+alumno.edad+'</td><td>'+alumno.curso+'</td>';
+                tbody.appendChild(tr);
+            });
+        });
+
+    </script>
+</body>
+</html>
