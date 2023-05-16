@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>
+                banco
+            </legend>
+            <input type="text"  name="numero" id="numero20" placeholder="ingrese numero de cuenta">
+            <label for="_20_digito">
+                20 digitos
+            </label><br>
+            <!-- 
+                6 digitos
+             -->
+            <input type="text"  name="numero" id="numero6" placeholder="ingrese numero de cuenta">
+            <label for="_6_digito">
+                6 digitos   
+            </label><br>
+               <input type="text"  name="numero" id="dni" placeholder="ingrese numero de cuenta">
+            <label for="dni">
+                d1n  
+            </label><br>
+            <input type="submit" value="validar" id="validar">
+
+
+        </fieldset>
+    </form>
+                <script>
+                var numero20 = document.getElementById("numero20");
+                var numero6 = document.getElementById("numero6");   
+                var dni = document.getElementById("dni");   
+                var validar = document.getElementById("validar");
+                /*
+                deja mente el dni si numero6 es correcto
+                */
+                dni.disabled = true;
+                function validar_dni(){
+                    if(numero6.value.length == 6){
+                        dni.disabled = false;
+                        var letras = "trwagmyfpdxbnjzsqvhlcket";
+                        dni.addEventListener("keyup", function(){
+                            var expresion = /^[0-9]{8}[a-z]$/i;
+                            if(expresion.test(dni.value)){
+                                var letra = dni.value.substr(-1);
+                                var num = dni.value.substr(0,8);
+                                var letra_correcta = letras.charAt(num%23);
+                                if(letra_correcta == letra){
+                                    alert("dni correcto");
+                                }else{
+                                    alert("dni incorrecto");
+                                }
+                            }
+                        })
+                    }
+                }
+                validar.addEventListener("click", function(){
+                    if(numero20.value.length == 20){
+                        if(numero6.value.length == 6){
+                            validar_dni();
+                            /* validar todo  los campos */
+                            var expresion20 = /^[0-9]{20}$/;
+                            var expresion6 = /^[0-9]{6}$/;
+                            var expresion_dni = /^[0-9]{8}[a-z]$/i;
+                            if(expresion20.test(numero20.value) && expresion6.test(numero6.value) && expresion_dni.test(dni.value)){
+                                alert("todo correcto");
+                            }else{
+                                alert("todo incorrecto");
+                            }
+
+                        }
+                    }
+                })
+
+            </script>
+</body>
+</html>
