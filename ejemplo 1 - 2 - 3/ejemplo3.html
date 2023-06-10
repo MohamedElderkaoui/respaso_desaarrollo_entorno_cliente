@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  <label for="texto">Texto:</label>
+  <input type="text" id="texto" oninput="limitarCaracteres(this)">
+</form>
+<script>
+function limitarCaracteres(campo) {
+  if (campo.value.length > 6) {
+    campo.value = campo.value.slice(0, 6);
+  }
+}
+</script>
+
+</body>
+</html>

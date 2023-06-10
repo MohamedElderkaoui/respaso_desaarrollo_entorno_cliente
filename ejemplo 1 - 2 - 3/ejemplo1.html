@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onkeydown Event</h2>
+
+<p>Press a key in the input field:</p>
+
+<input id="contenido" type="text" onkeyup="myFunction()">
+<input id="contenido2" type="text" disabled>
+<p id="demo"></p>
+
+<script>
+var cadena = "";
+var val_seis = /^\d{6}$/;
+function myFunction() {
+
+ cadena = document.getElementById("contenido").value;
+ var contenido2;
+  contenido2=document.getElementById("contenido2");
+	if (val_seis.test(cadena)){
+    	/*alert("ok");*/
+        contenido2.disabled=false;
+		/*alert("123")*/
+	}else{
+    	contenido2.disabled=true;
+    }
+}
+</script>
+
+</body>
+</html>
