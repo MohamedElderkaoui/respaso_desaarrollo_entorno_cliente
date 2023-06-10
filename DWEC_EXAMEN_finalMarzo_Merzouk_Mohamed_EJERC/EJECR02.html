@@ -27,6 +27,9 @@
             height: 100vh;
 
         }
+        td{
+            background-color: #bfbfbf;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +37,7 @@
         <div>
             <table border="2">
                   <tr>
-                    <td colspan="5">
+                    <td colpan="5">
                         <div id="plantalla" class="p">0</div>
                     </td>
                 </tr>
@@ -197,7 +200,7 @@
         ocho.addEventListener("click", function(){
             numero = parseInt(pantalla.innerHTML)*10;
             numero = numero + 8;
-            pantalla.innerHTML = numero;ç
+            pantalla.innerHTML = numero;
             setTimeout(function(){
                 ocho.style.backgroundColor = "white";
             }, 1000);
