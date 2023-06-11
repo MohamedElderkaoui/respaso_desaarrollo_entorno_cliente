@@ -1,0 +1,20 @@
+usuario ACEDE a la URL mediante Html  ,client decoficacio separaco po parte , se estabece conexion con el servidor , se envia la peticion , el servidor la procesa y envia la respuesta , el cliente la recibe y la procesa , el cliente cierra la conexion con el servidor portcp  y servidor devuelve la respuesta , cierra la cones|default_if_none:
+Subsistema de interfaz de usuario
+Subsistema del motor del buscador o motor de navegación.
+Subsistema de renderizado
+Subsistema de comunicaciones
+
+
+ntérprete de JavaScript. 
+o Parser XML
+o Componente de visualización.
+o Subsistema de persistencia de datos. 
+ Proceso de carga en un navegador Web:
+o Conforme el servidor recibe código, se muestra en el navegador
+en el área destinada a ello.
+o Se comienza a interpretar la estructura del documento y la
+búsqueda de recursos externos, scripts para su descarga.
+o Las imágenes, scripts y demás archivos de una página se
+guardan en una carpeta temporal.
+o Si se dispone de antivirus analiza estos archivos.
+o La velocidad de carga es mayor si se repiten las peticiones.

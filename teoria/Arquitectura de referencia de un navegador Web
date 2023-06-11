@@ -1,0 +1,12 @@
+Arquitectura de referencia de un navegador Web
+subsistema de intefaz de usuarios:intereacion navagacio y usuario
+Subsistema del motor del buscador o motor de navegación ofrece una interfaz de
+alto nivel para el motor de renderizado.
+ Subsistema de renderizado. Este componente es el encargado de producir una representación visual apati de una url
+Subsistema de comunicaciones. Es el subsistema encargado de implementar los protocolos de transferencia de ficheros y documentos utilizados en Internet (HTTP, FTP, etc.)
+o Intérprete de JavaScript
+
+Parser XML
+Componente de visualización 
+funcionalidades relacionadas documento html 
+Subsistema de persistencia de datos
