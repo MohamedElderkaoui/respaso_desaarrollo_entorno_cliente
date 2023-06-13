@@ -60,7 +60,7 @@
             </table>
         </div>
     </form>
-
+/*km*/
     <script>
   var secuencia = document.getElementById("secuencia");
 var uno = document.getElementById("1");
@@ -84,9 +84,9 @@ for (let i = 0; i < numnero.length; i++) {
       secuencia.innerText = "";
     }
     array.push(numnero2[i]);
-    secuencia.innerHTML += "  "+numnero[i].innerText;
+    secuencia.innerHTML += "  "+numnero[i].innerText;// explica de codigo: 1- 
+    //si el secuencia es igual a _ entonces secuencia es igual a vacio
     if (array.length == 3) {
-        secuencia.innerHTML = "_";
         for (let j = 0; j < array.length; j++) {
             setTimeout(function () {
                switch (array[j]) {
@@ -121,8 +121,9 @@ for (let i = 0; i < numnero.length; i++) {
             }
                 setTimeout(function () {
                     setTimeout(function () {
+        secuencia.innerHTML = "_";
                         location.reload();
-                    }, 4000);
+                    }, 5000);
                     numnero[array[j] - 1].style.color = "";
                 }, 1000);
             }, (j + 1) * 1000);
