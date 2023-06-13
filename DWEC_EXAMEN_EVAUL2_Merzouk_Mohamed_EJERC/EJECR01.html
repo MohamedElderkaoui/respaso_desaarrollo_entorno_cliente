@@ -62,53 +62,78 @@
     </form>
 
     <script>
-        // Variable para guardar la secuencia de pulsaciones
-        let secuencia = [];
+  var secuencia = document.getElementById("secuencia");
+var uno = document.getElementById("1");
+var dos = document.getElementById("2");
+var tres = document.getElementById("3");
+var cuatro = document.getElementById("4");
+var cinco = document.getElementById("5");
+var seis = document.getElementById("6");
+var siete = document.getElementById("7");
+var ocho = document.getElementById("8");
+var nueve = document.getElementById("9");
+var R = document.getElementById("R");
+var array = [];
 
-        // Variable para llevar el contador de pulsaciones
-        let contadorPulsaciones = 0;
+var numnero = [uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve];
+var numnero2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-        // Función para manejar el evento onclick de las celdas
-         function clic(num) {
-            // Agregar el número pulsado a la secuencia
-            secuencia.push(num);
-
-            // Mostrar la secuencia en el div de "secuencia"
-            document.getElementById("secuencia").innerText = secuencia.join(" ");
-
-            // Incrementar el contador de pulsaciones
-            contadorPulsaciones++;
-
-            // Reiniciar el contador y mostrar la secuencia de pulsaciones después de pulsar 3 números
-            if (contadorPulsaciones === 3) {
-                setTimeout(function() {
-                    alert("Secuencia de pulsaciones: " + secuencia.join(" "));
-                    reiniciar();
+for (let i = 0; i < numnero.length; i++) {
+  numnero[i].addEventListener("click", function () {
+    if (secuencia.innerText == "_") {
+      secuencia.innerText = "";
+    }
+    array.push(numnero2[i]);
+    secuencia.innerHTML += "  "+numnero[i].innerText;
+    if (array.length == 3) {
+        secuencia.innerHTML = "_";
+        for (let j = 0; j < array.length; j++) {
+            setTimeout(function () {
+               switch (array[j]) {
+                case 1:
+                    uno.style.color = "green"
+                    break;
+                case 2:
+                    dos.style.color = "red";
+                    break;
+                case 3:
+                    tres.style.color = "yellow";
+                    break;
+                case 4:
+                    cuatro.style.color = "blue";
+                    break;
+                case 5:
+                    cinco.style.color = "purple";
+                    break;
+                case 6:
+                    seis.style.color = "orange";
+                    break;
+                case 7:
+                    siete.style.color = "pink";
+                    break;
+                case 8: 
+                    ocho.style.color = "brown";
+                    break;
+                case 9:
+                    nueve.style.color = "black";
+                    nueve.style.backgroundColor = "white";
+                    break;
+            }
+                setTimeout(function () {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 4000);
+                    numnero[array[j] - 1].style.color = "";
                 }, 1000);
-            }
-
-            // Cambiar el color de la celda durante un breve instante
-            document.getElementById(num).style.backgroundColor = "lightgray";
-            setTimeout(function() {
-                document.getElementById(num).style.backgroundColor = "white";
-            }, 5000);
+            }, (j + 1) * 1000);
         }
+    }
+  });
+}
 
-
-        // Función para reiniciar el juego
-        function reiniciar() {
-            // Reiniciar la secuencia de pulsaciones y el contador
-            secuencia = [];
-            contadorPulsaciones = 0;
-
-            // Limpiar el div de "secuencia"
-            document.getElementById("secuencia").innerText = "_";
-
-            // Limpiar los colores de las celdas
-            for (let i = 1; i <= 9; i++) {
-                document.getElementById(i).style.backgroundColor = "white";
-            }
-        }
+R.addEventListener("click", function () {
+    location.reload();
+});
     </script>
 </body>
 </html>
