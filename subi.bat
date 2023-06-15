@@ -1,4 +1,4 @@
-git add .
-git commit -m "dIA %DATE% %TIME%"
-git push
+@REM git add .
+@REM git commit -m "dIA %DATE% %TIME%"
+@REM git push
 git pull
