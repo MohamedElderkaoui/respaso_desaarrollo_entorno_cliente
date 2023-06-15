@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simón</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="round-buttons">
+              <button class="round-button blue" onclick="añadirColor('azul')"></button>
+              <button class="round-button green" onclick="añadirColor('verde')"></button>
+              <button class="round-button red" onclick="añadirColor('rojo')"></button>
+              <button class="round-button yellow" onclick="añadirColor('amarillo')"></button>
+            </div>
+            <div class="normal-buttons">
+              <button class="normal-button" onclick="iniciar()">Iniciar</button>
+              <button class="normal-button" onclick="finalizar()">Finalizar</button>
+            </div>
+            <div class="input-container">
+               <input id="texto" type="text" placeholder="">
+             
+            </div>
+    </div>
+          
+    <script>
+       var texto = document.getElementById("texto");
+
+       var string ='';
+       function añadirColor(color) {
+        string  = string +' - '+ color;
+        console.log(string);
+        return string;
+       }
+       function iniciar() {
+        texto.placeholder=' ';
+        string ='';
+       }
+       function finalizar() {
+        texto.placeholder= string;
+        string ='';
+       }
+
+    </script>
+</body>
+</html>

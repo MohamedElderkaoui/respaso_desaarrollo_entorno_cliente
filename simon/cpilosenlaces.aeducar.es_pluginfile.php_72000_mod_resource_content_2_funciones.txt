@@ -1,0 +1,15 @@
+function generarNumeroAleatorio() {
+  // genera números aleatorios comprendidos entre 10 y 100
+  return Math.floor(Math.random() * 91) + 10;
+}
+
+
+function calcularLetraDNI(numeroDNI) {
+  const letrasDNI = 'TRWAGMYFPDXBNJZSQVHLCKE';
+  const indiceLetra = numeroDNI % 23;
+  
+  return letrasDNI.charAt(indiceLetra);
+}
+
+
+

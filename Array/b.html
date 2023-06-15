@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var array =[];
+        var array2 =[];
+        var string='';
+        var string2='';
+        function generarNumeroAleatorio() {
+  // genera números aleatorios comprendidos entre 10 y 100
+  return Math.floor(Math.random() * 91) + 10;
+}
+for (var i = 0; i < 11; i++) {
+    var num=generarNumeroAleatorio();
+    if ((num%2)==0){
+        array.push(num);
+        array2.push(Math.round(1.1*num));
+    }else{
+          array.push(num);
+        array2.push(num);
+    }
+}
+for (var i = 0; i < array.length; i++) {
+    string +=' - '+ array[i] ;
+    string2 +=' - '+ array2[i] ;
+}
+alert(string) ;
+alert(string2);
+
+
+    </script>
+</head> 
+<body>
+    
+</body>
+</html>
